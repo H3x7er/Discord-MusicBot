@@ -22,7 +22,7 @@ module.exports = {
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to play something!**"
+        "❌ | **Ge moe in een channel zitte!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -30,7 +30,7 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Ge moe in dezelfde channel zitte als mij!**"
       );
     let SearchString = args.join(" ");
     if (!SearchString)
@@ -61,7 +61,7 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Der is niks aant spelen...**"
       );
 
     if (player.state != "CONNECTED") await player.connect();
@@ -84,7 +84,7 @@ module.exports = {
           )
             player.play();
           SongAddedEmbed.setAuthor(
-            `Playlist added to queue`,
+            `Playlist toegevoegd aan queue`,
             message.author.displayAvatarURL()
           );
           SongAddedEmbed.addField(
@@ -100,7 +100,7 @@ module.exports = {
           );
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`Toegevoegd aan queue`, client.botconfig.IconURL);
           SongAddedEmbed.setDescription(
             `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
           );
@@ -112,7 +112,7 @@ module.exports = {
           //SongAddedEmbed.addField("Duration", `\`${prettyMilliseconds(Searched.tracks[0].length, { colonNotation: true })}\``, true);
           if (player.queue.totalSize > 1)
             SongAddedEmbed.addField(
-              "Position in queue",
+              "Plaats in queue",
               `${player.queue.size - 0}`,
               true
             );
@@ -120,7 +120,7 @@ module.exports = {
         } else {
           return client.sendTime(
             message.channel,
-            "**No matches found for - **" + SearchString
+            "**Niks gevonden voor - **" + SearchString
           );
         }
       } else {
@@ -128,13 +128,13 @@ module.exports = {
         if (!player)
           return client.sendTime(
             message.channel,
-            "❌ | **Nothing is playing right now...**"
+            "❌ | **Der is niks aan spelen...**"
           );
 
         if (Searched.loadType === "NO_MATCHES")
           return client.sendTime(
             message.channel,
-            "**No matches found for - **" + SearchString
+            "**Niks gevonden voor - **" + SearchString
           );
         else if (Searched.loadType == "PLAYLIST_LOADED") {
           player.queue.add(Searched.tracks);
@@ -145,7 +145,7 @@ module.exports = {
           )
             player.play();
           SongAddedEmbed.setAuthor(
-            `Playlist added to queue`,
+            `Playlist toegevoegd aan queue`,
             client.botconfig.IconURL
           );
           // SongAddedEmbed.setThumbnail(Searched.tracks[0].displayThumbnail());
@@ -169,7 +169,7 @@ module.exports = {
           player.queue.add(Searched.tracks[0]);
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`Toegevoegd aan queue`, client.botconfig.IconURL);
 
           // SongAddedEmbed.setThumbnail(Searched.tracks[0].displayThumbnail());
           SongAddedEmbed.setDescription(
@@ -185,7 +185,7 @@ module.exports = {
           );
           if (player.queue.totalSize > 1)
             SongAddedEmbed.addField(
-              "Position in queue",
+              "Plaats in queue",
               `${player.queue.size - 0}`,
               true
             );
@@ -196,7 +196,7 @@ module.exports = {
       console.log(e);
       return client.sendTime(
         message.channel,
-        "**No matches found for - **" + SearchString
+        "**Niks gevonden voor - **" + SearchString
       );
     }
   },
@@ -208,7 +208,7 @@ module.exports = {
         value: "song",
         type: 3,
         required: true,
-        description: "Play music in the voice channel",
+        description: "Speel music in de channel",
       },
     ],
     /**
@@ -226,7 +226,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Ge moe in een channel zitte!.**"
         );
       if (
         guild.me.voice.channel &&
@@ -234,7 +234,7 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Ge moe in dezelfde channel zitte als mij!**"
         );
       let CheckNode = client.Manager.nodes.get(client.botconfig.Lavalink.id);
       if (!CheckNode || !CheckNode.connected) {
@@ -265,14 +265,14 @@ module.exports = {
             if (!player.queue.current) player.destroy();
             return client.sendError(
               interaction,
-              `❌ | **There was an error while searching**`
+              `❌ | **Der was ne error bij het zoeken**`
             );
 
           case "NO_MATCHES":
             if (!player.queue.current) player.destroy();
             return client.sendTime(
               interaction,
-              "❌ | **No results were found.**"
+              "❌ | **Der is niks gevonden.**"
             );
           case "TRACK_LOADED":
             player.queue.add(TrackUtils.build(Searched.tracks[0], member.user));
@@ -280,7 +280,7 @@ module.exports = {
               player.play();
             let SongAddedEmbed = new MessageEmbed();
             SongAddedEmbed.setAuthor(
-              `Added to queue`,
+              `Toegevoegd aan queue`,
               client.botconfig.IconURL
             );
             SongAddedEmbed.setColor(client.botconfig.EmbedColor);
@@ -294,7 +294,7 @@ module.exports = {
             );
             if (player.queue.totalSize > 1)
               SongAddedEmbed.addField(
-                "Position in queue",
+                "Plaats in queue",
                 `${player.queue.size - 0}`,
                 true
               );
@@ -305,7 +305,7 @@ module.exports = {
             if (!player.playing && !player.paused && !player.queue.length)
               player.play();
             let SongAdded = new MessageEmbed();
-            SongAdded.setAuthor(`Added to queue`, client.botconfig.IconURL);
+            SongAdded.setAuthor(`Toegevoegd aan queue`, client.botconfig.IconURL);
             SongAdded.setColor(client.botconfig.EmbedColor);
             SongAdded.setDescription(
               `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
@@ -313,7 +313,7 @@ module.exports = {
             SongAdded.addField("Author", Searched.tracks[0].info.author, true);
             if (player.queue.totalSize > 1)
               SongAdded.addField(
-                "Position in queue",
+                "Plaats in queue",
                 `${player.queue.size - 0}`,
                 true
               );
@@ -332,7 +332,7 @@ module.exports = {
               player.play();
             let Playlist = new MessageEmbed();
             Playlist.setAuthor(
-              `Playlist added to queue`,
+              `Playlist toegevoegd aan queue`,
               client.botconfig.IconURL
             );
             Playlist.setDescription(
@@ -352,13 +352,13 @@ module.exports = {
             if (!player.queue.current) player.destroy();
             return client.sendError(
               interaction,
-              `:x: | **There was an error while searching**`
+              `:x: | **Der was ne error bij het zoeken**`
             );
           }
         } catch (err) {
           return client.sendError(
             interaction,
-            `There was an error while searching: ${err.message}`
+            `Der was ne error bij het zoeken: ${err.message}`
           );
         }
         switch (res.loadType) {
@@ -366,7 +366,7 @@ module.exports = {
             if (!player.queue.current) player.destroy();
             return client.sendTime(
               interaction,
-              "❌ | **No results were found.**"
+              "❌ | **Der is niks gevonden.**"
             );
           case "TRACK_LOADED":
             player.queue.add(res.tracks[0]);
@@ -374,7 +374,7 @@ module.exports = {
               player.play();
             let SongAddedEmbed = new MessageEmbed();
             SongAddedEmbed.setAuthor(
-              `Added to queue`,
+              `Toegevoegd aan queue`,
               client.botconfig.IconURL
             );
             //SongAddedEmbed.setThumbnail(res.tracks[0].displayThumbnail());
@@ -392,7 +392,7 @@ module.exports = {
             );
             if (player.queue.totalSize > 1)
               SongAddedEmbed.addField(
-                "Position in queue",
+                "Plaats in queue",
                 `${player.queue.size - 0}`,
                 true
               );
@@ -403,7 +403,7 @@ module.exports = {
             await player.play();
             let SongAdded = new MessageEmbed();
             SongAdded.setAuthor(
-              `Playlist added to queue`,
+              `Playlist toegevoegd aan queue`,
               client.botconfig.IconURL
             );
             //SongAdded.setThumbnail(res.tracks[0].displayThumbnail());
@@ -430,7 +430,7 @@ module.exports = {
             if (!player.playing && !player.paused && !player.queue.length) {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
-                `Added to queue`,
+                `Toegevoegd aan queue`,
                 client.botconfig.IconURL
               );
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
@@ -446,7 +446,7 @@ module.exports = {
               );
               if (player.queue.totalSize > 1)
                 SongAddedEmbed.addField(
-                  "Position in queue",
+                  "Plaats in queue",
                   `${player.queue.size - 0}`,
                   true
                 );
@@ -455,7 +455,7 @@ module.exports = {
             } else {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
-                `Added to queue`,
+                `Toegevoegd aan queue`,
                 client.botconfig.IconURL
               );
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
@@ -471,7 +471,7 @@ module.exports = {
               );
               if (player.queue.totalSize > 1)
                 SongAddedEmbed.addField(
-                  "Position in queue",
+                  "Plaats in queue",
                   `${player.queue.size - 0}`,
                   true
                 );

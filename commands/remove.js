@@ -24,12 +24,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Der is niks aant spelen...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **Ge moe in een channel zitten!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -37,14 +37,14 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Ge moe in dezelfde channel zitte als mij!**"
       );
 
     if (!player.queue || !player.queue.length || player.queue.length === 0)
-      return message.channel.send("There is nothing in the queue to remove");
+      return message.channel.send("Der staat niks in de queue");
     let rm = new MessageEmbed()
       .setDescription(
-        `✅ **|** Removed track **\`${Number(args[0])}\`** from the queue!`
+        `✅ **|** Kheb **\`${Number(args[0])}\`** verwijderd van de queue!`
       )
       .setColor("GREEN");
     if (isNaN(args[0]))
@@ -52,7 +52,7 @@ module.exports = {
         `**Usage - **${client.botconfig.prefix}\`remove [track]\``
       );
     if (args[0] > player.queue.length)
-      rm.setDescription(`The queue has only ${player.queue.length} songs!`);
+      rm.setDescription(`De queue heeft maar ${player.queue.length} liekes!`);
     await message.channel.send(rm);
     player.queue.remove(Number(args[0]) - 1);
   },
@@ -82,12 +82,12 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Der is niks aant spelen...**"
         );
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | **You must be in a voice channel to use this command.**"
+          "❌ | **Ge moe in een channel zitte.**"
         );
       if (
         guild.me.voice.channel &&
@@ -95,20 +95,20 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Ge moe in dezelfde channel zitte als mij!**"
         );
 
       if (!player.queue || !player.queue.length || player.queue.length === 0)
-        return client.sendTime("❌ | **Nothing is playing right now...**");
+        return client.sendTime("❌ | **Der is niks aant spelen...**");
       let rm = new MessageEmbed()
         .setDescription(
-          `✅ | **Removed track** \`${Number(args[0])}\` from the queue!`
+          `✅ | **Khem ** \`${Number(args[0])}\` verwijderd van de queue!`
         )
         .setColor("GREEN");
       if (isNaN(args[0]))
         rm.setDescription(`**Usage:** \`${GuildDB.prefix}remove [track]\``);
       if (args[0] > player.queue.length)
-        rm.setDescription(`The queue has only ${player.queue.length} songs!`);
+        rm.setDescription(`De queue heeft maar ${player.queue.length} liekes!`);
       await interaction.send(rm);
       player.queue.remove(Number(args[0]) - 1);
     },

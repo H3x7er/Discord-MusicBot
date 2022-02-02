@@ -71,7 +71,7 @@ module.exports = {
               GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix
             }play ${player.queue.current.uri}\``
           )
-          .addField(`🔎 Saved in:`, `<#${message.channel.id}>`)
+          .addField(`🔎 Opgeslagen in:`, `<#${message.channel.id}>`)
           .setFooter(
             `Requested by: ${player.queue.current.requester.tag}`,
             player.queue.current.requester.displayAvatarURL({
@@ -80,10 +80,10 @@ module.exports = {
           )
       )
       .catch((e) => {
-        return message.channel.send("**:x: Your DMs are disabled**");
+        return message.channel.send("**:x: U DMs staan uit**");
       });
 
-    client.sendTime(message.channel, "✅ | **Check your DMs!**");
+    client.sendTime(message.channel, "✅ | **Kijk u DMs!**");
   },
   SlashCommand: {
     /**
@@ -145,7 +145,7 @@ module.exports = {
               GuildDB ? GuildDB.prefix : client.botconfig.DefaultPrefix
             }play ${player.queue.current.uri}\``
           )
-          .addField(`🔎 Saved in:`, `<#${interaction.channel_id}>`)
+          .addField(`🔎 Opgeslagen in:`, `<#${interaction.channel_id}>`)
           .setFooter(
             `Requested by: ${player.queue.current.requester.tag}`,
             player.queue.current.requester.displayAvatarURL({
@@ -154,10 +154,10 @@ module.exports = {
           );
         user.send(embed);
       } catch (e) {
-        return client.sendTime(interaction, "**:x: Your DMs are disabled**");
+        return client.sendTime(interaction, "**:x: U DMs staan uit**");
       }
 
-      client.sendTime(interaction, "✅ | **Check your DMs!**");
+      client.sendTime(interaction, "✅ | **Kijk u DMs!**");
     },
   },
 };

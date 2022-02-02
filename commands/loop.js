@@ -62,12 +62,12 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Der is niks aant spelen...**"
         );
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | You must be in a voice channel to use this command."
+          "❌ | Ge moe in een channel zitten!."
         );
       if (
         guild.me.voice.channel &&
@@ -75,7 +75,7 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Ge moe in dezelfde channel zitte als mij!**"
         );
 
       if (player.trackRepeat) {

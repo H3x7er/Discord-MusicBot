@@ -1,3 +1,3 @@
-Discord Music Bot vo den Borri
+Muziek bot vo den Borri
 
 Nils#6969

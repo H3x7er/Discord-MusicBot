@@ -23,17 +23,17 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Der is niks aant spelen...**"
       );
 
     if (!player.queue || !player.queue.length || player.queue === 0) {
       let QueueEmbed = new MessageEmbed()
-        .setAuthor("Currently playing", client.botconfig.IconURL)
+        .setAuthor("Nu aant spelen", client.botconfig.IconURL)
         .setColor(client.botconfig.EmbedColor)
         .setDescription(
           `[${player.queue.current.title}](${player.queue.current.uri})`
         )
-        .addField("Requested by", `${player.queue.current.requester}`, true)
+        .addField("Aangevraagd door", `${player.queue.current.requester}`, true)
         .addField(
           "Duration",
           `${
@@ -67,14 +67,14 @@ module.exports = {
             {
               colonNotation: true,
             }
-          )}\` **|** Requested by: ${t.requester}\n`
+          )}\` **|** Aangevraagd door: ${t.requester}\n`
       ).join("\n");
 
       let Embed = new MessageEmbed()
         .setAuthor("Queue", client.botconfig.IconURL)
         .setColor(client.botconfig.EmbedColor)
         .setDescription(
-          `**Currently Playing:** \n[${player.queue.current.title}](${player.queue.current.uri}) \n\n**Up Next:** \n${SongsDescription}\n\n`
+          `**Nu aant spelen:** \n[${player.queue.current.title}](${player.queue.current.uri}) \n\n**Volgende:** \n${SongsDescription}\n\n`
         )
         .addField("Total songs: \n", `\`${player.queue.totalSize - 1}\``, true)
         .addField(
@@ -84,7 +84,7 @@ module.exports = {
           })}\``,
           true
         )
-        .addField("Requested by:", `${player.queue.current.requester}`, true)
+        .addField("Aangevraagd door:", `${player.queue.current.requester}`, true)
         .addField(
           "Current song duration:",
           `${
@@ -132,17 +132,17 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Der is niks aant spelen...**"
         );
 
       if (!player.queue || !player.queue.length || player.queue === 0) {
         let QueueEmbed = new MessageEmbed()
-          .setAuthor("Currently playing", client.botconfig.IconURL)
+          .setAuthor("Nu aant spelen", client.botconfig.IconURL)
           .setColor(client.botconfig.EmbedColor)
           .setDescription(
             `[${player.queue.current.title}](${player.queue.current.uri})`
           )
-          .addField("Requested by", `${player.queue.current.requester}`, true)
+          .addField("Aangevraagd door", `${player.queue.current.requester}`, true)
           .addField(
             "Duration",
             `${
@@ -175,14 +175,14 @@ module.exports = {
               t.uri
             }) \n\`${prettyMilliseconds(t.duration, {
               colonNotation: true,
-            })}\` **|** Requested by: ${t.requester}\n`
+            })}\` **|** Aangevraagd door: ${t.requester}\n`
         ).join("\n");
 
         let Embed = new MessageEmbed()
           .setAuthor("Queue", client.botconfig.IconURL)
           .setColor(client.botconfig.EmbedColor)
           .setDescription(
-            `**Currently Playing:** \n[${player.queue.current.title}](${player.queue.current.uri}) \n\n**Up Next:** \n${SongsDescription}\n\n`
+            `**Nu aant spelen:** \n[${player.queue.current.title}](${player.queue.current.uri}) \n\n**Volgende:** \n${SongsDescription}\n\n`
           )
           .addField(
             "Total songs: \n",
@@ -196,7 +196,7 @@ module.exports = {
             })}\``,
             true
           )
-          .addField("Requested by:", `${player.queue.current.requester}`, true)
+          .addField("Aangevraagd door:", `${player.queue.current.requester}`, true)
           .addField(
             "Current song duration:",
             `${

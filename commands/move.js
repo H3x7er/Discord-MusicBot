@@ -22,7 +22,7 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Der is niks aant spelen...**"
       );
     if (!args[0] || !args[1])
       return client.sendTime(message.channel, "❌ | **Invalid arguments.**");
@@ -49,7 +49,7 @@ module.exports = {
       message.channel,
       "✅ | **" +
         track.title +
-        "** has been moved to position " +
+        "** is verplaatst naar " +
         (dest + 1) +
         "."
     );
@@ -87,7 +87,7 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Der is niks aant spelen...**"
         );
       if (!args[0].value || !args[1].value)
         return client.sendTime(interaction, "❌ | **Invalid track number.**");
@@ -114,7 +114,7 @@ module.exports = {
         interaction,
         "✅ | **" +
           track.title +
-          "** has been moved to position " +
+          "** is verplaatst naar " +
           (dest + 1) +
           "."
       );

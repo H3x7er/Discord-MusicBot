@@ -22,12 +22,12 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Der is niks aant spelen...**"
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **ge moe in een channel zitte!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -35,12 +35,12 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Ge moe in dezelfde channel zitte als mij!**"
       );
     if (!player.queue.current.isSeekable)
       return client.sendTime(
         message.channel,
-        "❌ | **I'm not able to seek this song!**"
+        "❌ | **Ik kan da liedje nie vinde!**"
       );
     let SeekTo = client.ParseHumanTime(args.join(" "));
     if (!SeekTo)

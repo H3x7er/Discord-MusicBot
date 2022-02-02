@@ -22,17 +22,17 @@ module.exports = {
     if (!player)
       return client.sendTime(
         message.channel,
-        "❌ | **Nothing is playing right now...**"
+        "❌ | **Der is niks aant spelen...**"
       );
     if (!args[0])
       return client.sendTime(
         message.channel,
-        `🔉 | Current volume \`${player.volume}\`.`
+        `🔉 | Huidig volume \`${player.volume}\`.`
       );
     if (!message.member.voice.channel)
       return client.sendTime(
         message.channel,
-        "❌ | **You must be in a voice channel to use this command!**"
+        "❌ | **Ge moe in een channel zitte!**"
       );
     if (
       message.guild.me.voice.channel &&
@@ -40,24 +40,24 @@ module.exports = {
     )
       return client.sendTime(
         message.channel,
-        ":x: | **You must be in the same voice channel as me to use this command!**"
+        ":x: | **Ge moe in dezelfde channel zitte als mij!**"
       );
     if (!parseInt(args[0]))
       return client.sendTime(
         message.channel,
-        `**Please choose a number between** \`1 - 100\``
+        `**Kies een nummer tussen** \`1 - 100\``
       );
     let vol = parseInt(args[0]);
     if (vol < 0 || vol > 100) {
       return client.sendTime(
         message.channel,
-        "❌ | **Please Choose A Number Between `1-100`**"
+        "❌ | **Kies een nummer tussen `1-100`**"
       );
     } else {
       player.setVolume(vol);
       client.sendTime(
         message.channel,
-        `🔉 | **Volume set to** \`${player.volume}\``
+        `🔉 | **Volume ingesteld op** \`${player.volume}\``
       );
     }
   },
@@ -85,7 +85,7 @@ module.exports = {
       if (!member.voice.channel)
         return client.sendTime(
           interaction,
-          "❌ | You must be in a voice channel to use this command."
+          "❌ | Ge moe in een channel zitte!"
         );
       if (
         guild.me.voice.channel &&
@@ -93,27 +93,27 @@ module.exports = {
       )
         return client.sendTime(
           interaction,
-          ":x: | **You must be in the same voice channel as me to use this command!**"
+          ":x: | **Ge moe in dezelfde channel zitte als mij!**"
         );
       let player = await client.Manager.get(interaction.guild_id);
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Der is niks aant spele...**"
         );
       if (!args[0].value)
         return client.sendTime(
           interaction,
-          `🔉 | Current volume \`${player.volume}\`.`
+          `🔉 | Huidig volume \`${player.volume}\`.`
         );
       let vol = parseInt(args[0].value);
       if (!vol || vol < 1 || vol > 100)
         return client.sendTime(
           interaction,
-          `**Please choose a number between** \`1 - 100\``
+          `**Kies een nummer tussen** \`1 - 100\``
         );
       player.setVolume(vol);
-      client.sendTime(interaction, `🔉 | Volume set to \`${player.volume}\``);
+      client.sendTime(interaction, `🔉 | Volume ingesteld op \`${player.volume}\``);
     },
   },
 };
