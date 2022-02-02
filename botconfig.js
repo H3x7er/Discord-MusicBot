@@ -4,9 +4,9 @@ module.exports = {
   DefaultPrefix: process.env.Prefix || ">", //Default prefix, Server Admins can change the prefix
   Port: 3000, //Which port website gonna be hosted
   SupportServer: "https://discord.gg/FtYYvPGs5d", //Support Server Link
-  Token: process.env.Token || "OTM3ODI0NTI4NTk4NDY2NjEw.YfhXJw.KyL7w1fnrrVSMdV98j6OrBsOTjc", //Discord Bot Token
-  ClientID: process.env.Discord_ClientID || "937824528598466610", //Discord Client ID
-  ClientSecret: process.env.Discord_ClientSecret || "d676e1d249f5a094e8e0045f9bec03d3ab743555db3a3a419ec27a0efdf94747", //Discord Client Secret
+  Token: process.env.Token || "", //Discord Bot Token
+  ClientID: process.env.Discord_ClientID || "", //Discord Client ID
+  ClientSecret: process.env.Discord_ClientSecret || "", //Discord Client Secret
   Scopes: ["identify", "guilds", "applications.commands"], //Discord OAuth2 Scopes
   ServerDeafen: true, //If you want bot to stay deafened
   DefaultVolume: 100, //Sets the default volume of the bot, You can change this number anywhere from 1 to 100
@@ -28,9 +28,9 @@ module.exports = {
   //Lavalink
   Lavalink: {
     id: "Main",
-    host: "lavalink-replit.nilsdriezen.repl.co",
+    host: "",
     port: 443, // The port that lavalink is listening to. This must be a number!
-    pass: "BorriBotLavalink",
+    pass: "",
     secure: true, // Set this to true if the lavalink uses SSL or you're hosting lavalink on repl.it
   },
 
